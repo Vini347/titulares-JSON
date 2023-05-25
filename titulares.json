@@ -45,13 +45,13 @@
         },
         [
             {
-                "TermoID": 1
+                "TermoAceitoID": 1
             },
             {
-                "TermoID": 2
+                "TermoAceitoID": 2
             },
             {
-                "TermoID":3
+                "TermoAceitoID":3
             }
         ]
     ]
