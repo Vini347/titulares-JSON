@@ -5,7 +5,7 @@
                 "Nome": "André Noah Porto",
                 "Nacionalidade": "Brasileira",
                 "Naturalidade": "Franca SP",
-                "NomedoPai": "Guilherme Felipe Fernando Porto",
+                "NomePai": "Guilherme Felipe Fernando Porto",
                 "NomeMae": "Nair Heloisa Daniela",
                 "DataNascimento": "03/09/1977",
                 "PessoaPoliticamenteExposta": true,
@@ -24,7 +24,7 @@
             "TitularEndereco": {
                 "Categoria": "Residencial",
                 "Endereço": "Rua Rio Brilhante",
-                "Número": "186",
+                "Numero": "186",
                 "Complemento": "Casa",
                 "Bairro": "Jardim Agua Boa",
                 "CEP": "79812-130",
