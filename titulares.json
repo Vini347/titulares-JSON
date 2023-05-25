@@ -41,10 +41,18 @@
                 "TipoDado": "Outros",
                 "TituloDado": "Biometria",
                 "ValorDado": "SIM"
-            },
-            "TermoUsoAceitos": {
-                "TermoUsoID": [1, 2, 3]
             }
-        }
+        },
+        [
+            {
+                "TermoID": 1
+            },
+            {
+                "TermoID": 2
+            },
+            {
+                "TermoID":3
+            }
+        ]
     ]
 }
