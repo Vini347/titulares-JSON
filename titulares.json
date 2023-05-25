@@ -42,6 +42,17 @@
                 "TituloDado": "Biometria",
                 "ValorDado": "SIM"
             }
-        }
+        },
+        [
+            {
+                "TermoID": 1
+            },
+            {
+                "TermoID": 2
+            },
+            {
+                "TermoID":3
+            }
+        ]
     ]
 }
