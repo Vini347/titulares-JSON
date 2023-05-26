@@ -1,7 +1,10 @@
-from django.http import JsonResponse
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
-
-def json_view(request):
-    with open('titulares.json') as file:
-        data = json.load(file)
-    return JsonResponse(data)
+@csrf_exempt
+def retorno_json(request):
+    data = request.body.decode('utf-8')
+    print(data)
+    json_data = json.loads(data)
+    print(json_data)
+    return HttpResponse('Done')

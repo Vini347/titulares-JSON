@@ -15,9 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from titulares.views import json_view
+from titulares.views import retorno_json
 
 urlpatterns = [
-    path('json/', json_view),
+    path('retorno_json/', retorno_json)
 ]
 
