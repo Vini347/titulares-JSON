@@ -1,8 +1,7 @@
-{
-    "Titulares": [
-        {
-            "Titular": {
-                "Nome": "André Noah Porto",
+[
+    {
+        "Titular": {
+                "Nome": "Vinicius",
                 "Nacionalidade": "Brasileira",
                 "Naturalidade": "Franca SP",
                 "NomePai": "Guilherme Felipe Fernando Porto",
@@ -10,49 +9,104 @@
                 "DataNascimento": "03/09/1977",
                 "PessoaPoliticamenteExposta": true,
                 "MenorIdade": false,
-                "ResponsavelLegal": false
+                "ResponsavelLegal": false,
+                "TitularChavePesquisa": "1"
             },
             "Email": {
-                "Categoria": "Pessoal",
+                "EmailCategoria": 1,
                 "EmailEndereco": "andre_porto@hellokitty.com"
             },
             "Telefone": {
                 "DDI": "55",
-                "DDD": "57",
+                "DDD": "11",
                 "Nro": "3935-3188"
             },
             "TitularEndereco": {
-                "Categoria": "Residencial",
-                "Endereço": "Rua Rio Brilhante",
-                "Numero": "186",
+                "Habitacao": 1,
+                "Endereco": "Rua Rio Brilhante",
+                "Numero": 23,
                 "Complemento": "Casa",
                 "Bairro": "Jardim Agua Boa",
                 "CEP": "79812-130",
                 "Cidade": "Dourados",
                 "UF": "MS",
-                "País": "Brasil"
+                "Pais": "Brasil"
             },
             "Documentos": {
-                "TipoDoc": "CPF",
+                "TipoDoc": 1,
                 "ValorDoc": "447.006.491-27",
                 "ValidadeDoc": "12/08/2024"
             },
             "OutrosDados": {
-                "TipoDado": "Outros",
+                "TipoDado": 1,
                 "TituloDado": "Biometria",
                 "ValorDado": "SIM"
-            }
-        },
-        [
-            {
-                "TermoAceitoID": 1
             },
-            {
-                "TermoAceitoID": 2
+             "Termos":[
+	                    {
+                            "TermoID": 1
+                        },
+                        {
+                            "TermoID": 2
+                        },
+                        {
+        	                "TermoID": 3
+                        }
+                      ]
+                  },
+                  {
+            "Titular": {
+                "Nome":"Jose",
+                "Nacionalidade": "Indiano",
+                "Naturalidade": "Sao Paulo SP",
+                "NomePai": "Fabricio Oliveira",
+                "NomeMae": "Bruna pinto",
+                "DataNascimento": "05/08/1979",
+                "PessoaPoliticamenteExposta": true,
+                "MenorIdade": false,
+                "ResponsavelLegal": false,
+                "TitularChavePesquisa": "2"
             },
-            {
-                "TermoAceitoID":3
-            }
-        ]
-    ]
-}
+            "Email": {
+                "EmailCategoria": 1,
+                "EmailEndereco": "Ronaldo_Trave@gmail.com"
+            },
+            "Telefone": {
+                "DDI": "55",
+                "DDD": "57",
+                "Nro": "3935-3190"
+            },
+            "TitularEndereco": {
+                "Habitacao": 1,
+                "Endereco": "Rua Peroba",
+                "Numero": 29,
+                "Complemento": "Casa",
+                "Bairro": "Jardim Pelicano",
+                "CEP": "29812-130",
+                "Cidade": "Sao Paulo",
+                "UF": "SP",
+                "Pais": "Brasil"
+            },
+            "Documentos": {
+                "TipoDoc": 1,
+                "ValorDoc": "440.606.191-77",
+                "ValidadeDoc": "12/08/2024"
+            },
+            "OutrosDados": {
+                "TipoDado": 2,
+                "TituloDado": "Foto",
+                "ValorDado": "SIM"
+            },
+		    "Termos":[
+                        {
+                        "TermoID": 1
+                        },
+                        {
+                        "TermoID": 2
+                        },
+                        {
+                        "TermoID": null
+                        }
+                    ]
+	}
+]

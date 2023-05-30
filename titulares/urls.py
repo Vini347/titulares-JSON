@@ -18,6 +18,6 @@ from django.urls import path
 from titulares.views import retorno_json
 
 urlpatterns = [
-    path('retorno_json/', retorno_json)
+    path('retorno_json/', retorno_json),
 ]
 

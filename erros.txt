@@ -1,45 +1,4 @@
 Relação de erros e códigos de erros
 
-Titular = 100 {
-    Nome = 101
-    Nacionalidade = 102
-    Naturalidade = 103
-    NomePai = 104
-    NomeMae = 105
-    DataNascimento = 106
-    PessoaPoliticamenteExposta = 107
-    MenorIdade = 108
-    ResponsavelLegal = 109
-}
-Email = 200 {
-    Categoria = 201
-    EmailEndereco = 202
-}
-Telefone = 300 {
-    DDI = 301
-    DDD = 302
-    Nro = 303
-}
-TitularEndereco = 400 {
-    Categoria = 401
-    Endereço = 402
-    Numero = 403
-    Complemento = 404
-    Bairro = 405
-    CEP = 406
-    Cidade = 407
-    UF = 408
-    Pais = 409
-}
-Documentos = 500 {
-    TipoDoc = 501
-    ValorDoc = 502
-    ValorDado = 503
-}
-OutrosDados = 600 {
-    TipoDado = 601
-    TituloDado = 602
-    ValorDado = 603
-}
-
-Falta aceite do termo de uso = 001
+Falta dado em campo obrigatório = 001
+Falta aceite do termo de uso = 002
