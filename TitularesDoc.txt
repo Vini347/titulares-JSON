@@ -1,5 +1,5 @@
 [
-    {  
+    {
         "Titular": {
             "Nome": "Vi",
             "Nacionalidade": "Brasileira",
@@ -46,10 +46,10 @@
                     {
                     "TermoID": 1
                 },
-                {
+                    {
                     "TermoID": 2
                 },
-                {
+                    {
                     "TermoID": 3
                 }
                 ]

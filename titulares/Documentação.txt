@@ -1,0 +1,35 @@
+Nessa documentação, serão detalhadas algumas especificações
+sobre o processo de inserção de dados
+
+Especificações do JSON para inserção de dados:
+De acordo com o o exemplar do arquivo JSON que será consumido
+para inserção dos dados:
+
+* Os valores entre aspas ("") que não são datas, devem ser
+dados do tipo 'Varchar(40)';
+
+* Os valores entre aspas que são datas, devem ser 
+dados do tipo 'datetime' no formato DD/MM/YYYY ou DD-MM-YYYY;
+
+* Os valores fora de aspas são números inteiros
+(cada número corresponde a um valor diferente de dado, de acordo com o modelo construido)
+
+* Nas listas dentro do JSON, as chaves que conterem valores obrigam que
+as demais chaves da mesma lista também tenham todos os valores atribuidos.
+Ex1: Se na lista "OutrosDados" as chaves "TipoDado" e "TituloDado" estão
+preenchidas com valores, a chave "ValorDado" necessariamente precisa de valor,
+caso contrário, os demais dados do cliente serão rejeitados.
+Ex2: Se na lista "OutrosDados" nenhum valor foi atribuido a nenhuma chave, a
+lista será excluída da inserção de dados, mas os demais dados do cliente
+não serão rejeitados.
+
+* Na lista "Titular" a chave "TitularChavePesquisa" deve ser preenchida
+com um valor diferente para cada titular dentro do JSON.
+
+Processo de inserção de dados via JSON:
+
+* Após a filtragem por parâmetros realizada no JSON, os dados que forem
+devidamente atribuidos serão inseridos no banco de dados. Os dados que
+forem rejeitados pelo filtro de parâmetros serão inclusos em um outro
+JSON que será retornado. Nesse JSON haverá listas campos que precisam
+ser devidamente preenchidos para a correta inserção dos dados.

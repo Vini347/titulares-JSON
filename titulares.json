@@ -1,12 +1,12 @@
 [
-    { 
+    {
         "Titular": {
                 "Nome": "Vi",
                 "Nacionalidade": "Brasileira",
                 "Naturalidade": "Franca SP",
                 "NomePai": "Guilherme Felipe Fernando Porto",
                 "NomeMae": "Nair Heloisa Daniela",
-                "DataNascimento": "03/09/1977",
+                "DataNascimento": "03-09-1977",
                 "PessoaPoliticamenteExposta": true,
                 "MenorIdade": false,
                 "ResponsavelLegal": false,
@@ -35,12 +35,12 @@
             "Documentos": {
                 "TipoDoc": 1,
                 "ValorDoc": "447.006.491-27",
-                "ValidadeDoc": "12/08/2024"
+                "ValidadeDoc": "12-08-2024"
             },
             "OutrosDados": {
                 "TipoDado": 1,
                 "TituloDado": "Biometria",
-                "ValorDado": "SIM"
+                "ValorDado": null
             },
              "Termos":[
 	                      {
@@ -61,7 +61,7 @@
                 "Naturalidade": "Sao Paulo SP",
                 "NomePai": "Fabricio Oliveira",
                 "NomeMae": "Bruna pinto",
-                "DataNascimento": "05/08/1979",
+                "DataNascimento": "05-08-1979",
                 "PessoaPoliticamenteExposta": true,
                 "MenorIdade": false,
                 "ResponsavelLegal": false,
@@ -90,7 +90,7 @@
             "Documentos": {
                 "TipoDoc": 1,
                 "ValorDoc": "440.606.191-77",
-                "ValidadeDoc": "12/08/2024"
+                "ValidadeDoc": "12-08-2024"
             },
             "OutrosDados": {
                 "TipoDado": 2,
@@ -107,5 +107,5 @@
                       "TermoID": 2
                     }
                 ]
-	}             
+	}   
 ]
