@@ -1,7 +1,7 @@
 [
-    {
+    { 
         "Titular": {
-                "Nome": "Vinicius",
+                "Nome": "Vi",
                 "Nacionalidade": "Brasileira",
                 "Naturalidade": "Franca SP",
                 "NomePai": "Guilherme Felipe Fernando Porto",
@@ -10,10 +10,10 @@
                 "PessoaPoliticamenteExposta": true,
                 "MenorIdade": false,
                 "ResponsavelLegal": false,
-                "TitularChavePesquisa": "1"
+                "TitularChavePesquisa": 1
             },
             "Email": {
-                "EmailCategoria": 1,
+                "Categoria": 1,
                 "EmailEndereco": "andre_porto@hellokitty.com"
             },
             "Telefone": {
@@ -22,7 +22,7 @@
                 "Nro": "3935-3188"
             },
             "TitularEndereco": {
-                "Habitacao": 1,
+                "Categoria": 1,
                 "Endereco": "Rua Rio Brilhante",
                 "Numero": 23,
                 "Complemento": "Casa",
@@ -43,11 +43,11 @@
                 "ValorDado": "SIM"
             },
              "Termos":[
-	                    {
-                            "TermoID": 1
+	                      {
+                        	"TermoID": 1
                         },
                         {
-                            "TermoID": 2
+                          "TermoID": 2
                         },
                         {
         	                "TermoID": 3
@@ -65,10 +65,10 @@
                 "PessoaPoliticamenteExposta": true,
                 "MenorIdade": false,
                 "ResponsavelLegal": false,
-                "TitularChavePesquisa": "2"
+                "TitularChavePesquisa": 2
             },
             "Email": {
-                "EmailCategoria": 1,
+                "Categoria":1,
                 "EmailEndereco": "Ronaldo_Trave@gmail.com"
             },
             "Telefone": {
@@ -77,7 +77,7 @@
                 "Nro": "3935-3190"
             },
             "TitularEndereco": {
-                "Habitacao": 1,
+                "Categoria": 1,
                 "Endereco": "Rua Peroba",
                 "Numero": 29,
                 "Complemento": "Casa",
@@ -97,16 +97,15 @@
                 "TituloDado": "Foto",
                 "ValorDado": "SIM"
             },
-		    "Termos":[
-                        {
-                        "TermoID": 1
-                        },
-                        {
-                        "TermoID": 2
-                        },
-                        {
-                        "TermoID": null
-                        }
-                    ]
-	}
+            
+		"Termos":
+                  [
+                    {
+                      "TermoID": 1
+                    },
+                    {
+                      "TermoID": 2
+                    }
+                ]
+	}             
 ]

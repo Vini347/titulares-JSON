@@ -1,42 +1,51 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import psycopg2 as pg
 import json
+import psycopg2 as pg
 from .validators import *
-from .definserts import *
-
+from .DefInserts import *
+from django.conf import settings
 
 @csrf_exempt
 def retorno_json(request):
-    conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+
+    listErrors=[]
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+
+    connection = pg.connect(
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
-    cursor = conn.cursor()
-    listErrors = []
+    cursor = connection.cursor()
 
-    if request.method == 'POST':
-        data = request.body.decode('utf-8')
-        json_data = json.loads(data)
+    for Titular in json_data:
+        response, dicError = Validator(Titular)
+        if response:
+            insertTitular(Titular['Titular'])
+            
+            cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Titular['Titular']['TitularChavePesquisa']}'")
+            IdTitular = cursor.fetchall()[0][0]
+            insertOutros(Titular['OutrosDados'], IdTitular)
+            insertDocumento(Titular['Documentos'],  IdTitular)
+            insertEndereco(Titular['TitularEndereco'], IdTitular)
+            insertTelefone(Titular['Telefone'], IdTitular)
+            insertEmail(Titular['Email'], IdTitular)
+            insertDadosTitulares(Titular['Termos'], IdTitular)
 
-        for Titular in json_data:
-            response, dicError = Validator(Titular)
-            if response:
-                insertTitular(Titular['Titular'])
-                insertDocumento(Titular['Documentos'], Titular['Titular']['TitularChavePesquisa'])
-                insertEndereco(Titular['TitularEndereco'], Titular['Titular']['TitularChavePesquisa'])
-                insertTelefone(Titular['Telefone'], Titular['Titular']['TitularChavePesquisa'])
-                insertEmail(Titular['Email'], Titular['Titular']['TitularChavePesquisa'])
-                insertOutros(Titular['OutrosDados'], Titular['Titular']['TitularChavePesquisa'])
-                insertTermosIDs(Titular['Termos'])
-            else:
-                listErrors.append(dicError)
+        else:
+            listErrors.append(dicError)
+    
+    print(listErrors)
 
-        print(listErrors)
-        cursor.close()
-        conn.close()
 
+    connection.close()
+    cursor.close()
+
+    if len(listErrors) == 0:
+        return HttpResponse("Nenhum erro encontrado")
+    
     return JsonResponse(listErrors, safe=False)

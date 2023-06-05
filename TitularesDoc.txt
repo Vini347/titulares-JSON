@@ -1,0 +1,57 @@
+[
+    {  
+        "Titular": {
+            "Nome": "Vi",
+            "Nacionalidade": "Brasileira",
+            "Naturalidade": "Franca SP",
+            "NomePai": "Guilherme Felipe Fernando Porto",
+            "NomeMae": "Nair Heloisa Daniela",
+            "DataNascimento": "03/09/1977",
+            "PessoaPoliticamenteExposta": true,
+            "MenorIdade": false,
+            "ResponsavelLegal": false,
+            "TitularChavePesquisa": 1
+        },
+        "Email": {
+            "Categoria": 1,
+            "EmailEndereco": "andre_porto@hellokitty.com"
+        },
+        "Telefone": {
+            "DDI": "55",
+            "DDD": "11",
+            "Nro": "3935-3188"
+        },
+        "TitularEndereco": {
+            "Categoria": 1,
+            "Endereco": "Rua Rio Brilhante",
+            "Numero": 23,
+            "Complemento": "Casa",
+            "Bairro": "Jardim Agua Boa",
+            "CEP": "79812-130",
+            "Cidade": "Dourados",
+            "UF": "MS",
+            "Pais": "Brasil"
+        },
+        "Documentos": {
+            "TipoDoc": 1,
+            "ValorDoc": "447.006.491-27",
+            "ValidadeDoc": "12/08/2024"
+        },
+        "OutrosDados": {
+            "TipoDado": 1,
+            "TituloDado": "Biometria",
+            "ValorDado": "SIM"
+        },
+        "Termos":[
+                    {
+                    "TermoID": 1
+                },
+                {
+                    "TermoID": 2
+                },
+                {
+                    "TermoID": 3
+                }
+                ]
+    }
+]

@@ -1,12 +1,13 @@
 import psycopg2 as pg
+from django.conf import settings
 
 def insertTitular(Titular):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
     cursor = conn.cursor()
     nome = Titular['Nome']
@@ -33,13 +34,13 @@ def insertTitular(Titular):
         conn.commit()
         return ('Titular cadastrado com sucesso')
     
-def insertDocumento(Titular, Chave):
+def insertDocumento(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
     
     cursor = conn.cursor()
@@ -55,26 +56,23 @@ def insertDocumento(Titular, Chave):
         encontrado = 1
         break
     if encontrado == 0:
-    
-        cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Chave}'")
-        selectchave = cursor.fetchall()
         
         sql = "INSERT INTO titulardocumento(titulardocumentotipodocumentopessoal, titulardocumentoconteudo, titulardocumentovalidade,titularid) VALUES(%s, %s, %s,%s)"
-        cursor.execute(sql, (tipo_doc, valor_doc, validade_doc,selectchave[0][0]))
+        cursor.execute(sql, (tipo_doc, valor_doc, validade_doc, id))
         conn.commit()
         return ('Documento cadastrado com sucesso')
     
-def insertEndereco(Titular, Chave):
+def insertEndereco(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
 
     cursor = conn.cursor()
-    categoriaend = Titular['Habitacao']
+    categoriaend = Titular['Categoria']
     endereco = Titular['Endereco']
     numerolocal = Titular['Numero']
     complemento = Titular['Complemento']
@@ -84,10 +82,7 @@ def insertEndereco(Titular, Chave):
     unidadefederal = Titular['UF']
     pais = Titular['Pais']
 
-    cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Chave}'")
-    selectchave = cursor.fetchall()
-
-    query = f"""select titularid from titularendereco where titularid = '{selectchave[0][0]}'"""
+    query = f"""select titularid from titularendereco where titularid = '{id}'"""
     cursor.execute(query)
     resultados = cursor.fetchall()
     encontrado = 0
@@ -97,17 +92,17 @@ def insertEndereco(Titular, Chave):
     if encontrado == 0:
 
         sql = "INSERT INTO titularendereco(titularenderecocategoriaendereco, titularenderecorua, titularendereconro, titularenderecocomplemento, titularenderecobairro, titularenderecocep, titularenderecocidade, titularenderecouf, titularenderecopais, titularid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql, (categoriaend, endereco, numerolocal, complemento, bairro, cep, cidade, unidadefederal, pais, selectchave[0][0]))
+        cursor.execute(sql, (categoriaend, endereco, numerolocal, complemento, bairro, cep, cidade, unidadefederal, pais, id))
         conn.commit()
         return('Endereço cadastrado com sucesso')
 
-def insertTelefone(Titular, Chave):
+def insertTelefone(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
 
     cursor = conn.cursor()
@@ -124,25 +119,22 @@ def insertTelefone(Titular, Chave):
         break
     if encontrado == 0:
 
-        cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Chave}'")
-        selectchave = cursor.fetchall()
-
         sql = "INSERT INTO titulartelefone(titulartelefoneinternacional, titulartelefoneDDD, titulartelefonenro, titularid) VALUES(%s, %s, %s, %s)"
-        cursor.execute(sql, (TelDDI, TelDDD, TelNro, selectchave[0][0]))
+        cursor.execute(sql, (TelDDI, TelDDD, TelNro, id))
         conn.commit()
         return('Telefone cadastrado com sucesso')
 
-def insertEmail(Titular, Chave):
+def insertEmail(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
 
     cursor = conn.cursor()
-    emailcategoria = Titular['EmailCategoria']
+    emailcategoria = Titular['Categoria']
     emailendereco = Titular['EmailEndereco']
 
     query = f"""select titularemailemail from titularemail where titularemailemail = '{emailendereco}'"""
@@ -154,21 +146,18 @@ def insertEmail(Titular, Chave):
         break
     if encontrado == 0:
 
-        cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Chave}'")
-        selectchave = cursor.fetchall()
-
         sql = "INSERT INTO titularemail(titularemailcategoriaemail, titularemailemail, titularid) VALUES(%s, %s, %s)"
-        cursor.execute(sql, (emailcategoria, emailendereco, selectchave[0][0]))
+        cursor.execute(sql, (emailcategoria, emailendereco, id))
         conn.commit()
         return('Telefone cadastrado com sucesso')
 
-def insertOutros(Titular, Chave):
+def insertOutros(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
 
     cursor = conn.cursor()
@@ -176,27 +165,55 @@ def insertOutros(Titular, Chave):
     titulo_dado  = Titular['TituloDado']
     valor_dado = Titular['ValorDado']
 
-    cursor.execute(f"SELECT titularid FROM titular WHERE titularchavepesquisa = '{Chave}'")
-    selectchave = cursor.fetchall()
-    print(selectchave)
+    query = f"""select titularid from titularoutros where titularid = '{id}'"""
+    cursor.execute(query)
+    resultados = cursor.fetchall()
+    encontrado = 0
+    for x in resultados:
+        encontrado = 1
+        break
+    if encontrado == 0:
 
-    sql = "INSERT INTO titularoutros(titularoutrosdadotipo, titularoutrostitulo, titularoutrosvalor, titularid) VALUES(%s, %s, %s, %s)"
-    cursor.execute(sql, (tipo_dado, titulo_dado, valor_dado, selectchave[0][0]))
-    conn.commit()
-    return('Dados titulares cadastrados com sucesso')
+        sql = "INSERT INTO titularoutros(titularoutrosdadotipo, titularoutrostitulo, titularoutrosvalor, titularid) VALUES(%s, %s, %s, %s)"
+        cursor.execute(sql, (tipo_dado, titulo_dado, valor_dado, id))
+        conn.commit()
+        return('Dados titulares cadastrados com sucesso')
     
-def insertTermosIDs(Titular):
+def insertDadosTitulares(Titular, id):
     conn = pg.connect(
-        host="localhost",
-        port="5432",
-        database="Eagle2",
-        user="postgres",
-        password="SDNA@2022"
+        user=settings.DB_USER,
+        password=settings.DB_PASSWORD,
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME
     )
     cursor = conn.cursor()
-    cursor.execute('SELECT titularid as "titularid", titulardocumentoid as "titulardocumentoid", titularemailid as "titularemailid", titularenderecoid as "titularenderecoid", titulartelefoneid as "titulartelefoneid" FROM titulares_ids')
-    titulares_ids = cursor.fetchall()
-    sql = "INSERT INTO dadostitulares(sg_titularid, titulardocumentoid, titularemailid, titularenderecoid)"
+     
+    cursor.execute(f"select titulardocumentoid from titulardocumento where titularid = {id}")
+    IdDocumento = cursor.fetchall()[0][0]
+
+    cursor.execute(f"select titularEnderecoid from titularEndereco where titularid = {id}")
+    IdEndereco = cursor.fetchall()[0][0]
+
+    cursor.execute(f"select titularemailid from titularemail where titularid = {id}")
+    IdEmail = cursor.fetchall()[0][0]
+
+    cursor.execute(f"select titularTelefoneid from titularTelefone where titularid = {id}")
+    IdTelefone = cursor.fetchall()[0][0]
+  
+    for termo in Titular:
+        cursor.execute(f"select sg_titularid, sg_termoid from dadostitulares where sg_titularid = {id} and sg_termoid = {termo['TermoID']}")
+        resultados = cursor.fetchall()
+        encontrado = 0
+        for x in resultados:
+            encontrado = 1
+            break
+        if encontrado == 0:
+
+            sql = "insert into dadostitulares(sg_termoid, sg_titularid, titulardocumentoid,titularemailid,titularenderecoid, titulartelefoneid) values(%s,%s,%s,%s,%s,%s)"
+            cursor.execute(sql,(termo['TermoID'],id,IdDocumento, IdEmail, IdEndereco, IdTelefone))
+            conn.commit()
+    
     cursor.close()
     conn.close()
     return('Dados titulares cadastrados com sucesso')
