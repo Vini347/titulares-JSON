@@ -1,7 +1,7 @@
 [
     {
         "Titular": {
-                "Nome": "Vi",
+                "Nome": "Vinicius",
                 "Nacionalidade": "Brasileira",
                 "Naturalidade": "Franca SP",
                 "NomePai": "Guilherme Felipe Fernando Porto",
@@ -40,7 +40,7 @@
             "OutrosDados": {
                 "TipoDado": 1,
                 "TituloDado": "Biometria",
-                "ValorDado": null
+                "ValorDado": "SIM"
             },
              "Termos":[
 	                      {

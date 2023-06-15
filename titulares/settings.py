@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'titulares.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Eagle2',
+        'NAME': 'Eagle',
         'USER': 'postgres',
         'PASSWORD': 'SDNA@2022',
         'HOST': 'localhost',

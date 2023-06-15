@@ -20,4 +20,3 @@ from titulares.views import retorno_json
 urlpatterns = [
     path('retorno_json/', retorno_json),
 ]
-
