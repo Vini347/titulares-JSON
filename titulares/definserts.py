@@ -29,8 +29,8 @@ def insertTitular(Titular):
         encontrado = 1
         break
     if encontrado == 0:
-        sql = "INSERT INTO titular(titularnome, titularnacionalidade, titularnaturalidade, titularnomepai, titularnomemae, titulardtnasc, titularpolitexposta, titularmenoridade, titularrespleal, titularchavepesquisa) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql, (nome, nacionalidade, naturalidade, nomedopai, nomedamae, datanasc, pessoapoliticamenteexposta, menoridade, responsavellegal, titularchavepesquisa))
+        sql = "INSERT INTO titular(titularnome, titularnacionalidade, titularnaturalidade, titularnomepai, titularnomemae, titulardtnasc, titulardtnascchar, titularpolitexposta, titularpolitexpostachar, titularmenoridade, titularmenoridadechar, titularrespleal, titularchavepesquisa) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        cursor.execute(sql, (nome, nacionalidade, naturalidade, nomedopai, nomedamae, datanasc, datanasc, pessoapoliticamenteexposta, pessoapoliticamenteexposta, menoridade, menoridade, responsavellegal, titularchavepesquisa))
         conn.commit()
         return ('Titular cadastrado com sucesso')
     
@@ -57,8 +57,8 @@ def insertDocumento(Titular, id):
         break
     if encontrado == 0:
         
-        sql = "INSERT INTO titulardocumento(titulardocumentotipodocumentopessoal, titulardocumentoconteudo, titulardocumentovalidade,titularid) VALUES(%s, %s, %s,%s)"
-        cursor.execute(sql, (tipo_doc, valor_doc, validade_doc, id))
+        sql = "INSERT INTO titulardocumento(titulardocumentotipodocumentopessoal, titulardocumentotipodocumentopessoalchar, titulardocumentoconteudo, titulardocumentovalidade,titularid) VALUES(%s, %s, %s, %s, %s)"
+        cursor.execute(sql, (tipo_doc, tipo_doc, valor_doc, validade_doc, id))
         conn.commit()
         return ('Documento cadastrado com sucesso')
     
@@ -91,8 +91,8 @@ def insertEndereco(Titular, id):
         break
     if encontrado == 0:
 
-        sql = "INSERT INTO titularendereco(titularenderecocategoriaendereco, titularenderecorua, titularendereconro, titularenderecocomplemento, titularenderecobairro, titularenderecocep, titularenderecocidade, titularenderecouf, titularenderecopais, titularid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql, (categoriaend, endereco, numerolocal, complemento, bairro, cep, cidade, unidadefederal, pais, id))
+        sql = "INSERT INTO titularendereco(titularenderecocategoriaendereco, titularenderecocategoriaenderecochar, titularenderecorua, titularendereconro, titularenderecocomplemento, titularenderecobairro, titularenderecocep, titularenderecocidade, titularenderecouf, titularenderecopais, titularid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        cursor.execute(sql, (categoriaend, categoriaend, endereco, numerolocal, complemento, bairro, cep, cidade, unidadefederal, pais, id))
         conn.commit()
         return('Endereço cadastrado com sucesso')
 
@@ -146,10 +146,10 @@ def insertEmail(Titular, id):
         break
     if encontrado == 0:
 
-        sql = "INSERT INTO titularemail(titularemailcategoriaemail, titularemailemail, titularid) VALUES(%s, %s, %s)"
-        cursor.execute(sql, (emailcategoria, emailendereco, id))
+        sql = "INSERT INTO titularemail(titularemailcategoriaemail, titularemailcategoriaemailchar, titularemailemail, titularid) VALUES(%s, %s, %s, %s)"
+        cursor.execute(sql, (emailcategoria, emailcategoria, emailendereco, id))
         conn.commit()
-        return('Telefone cadastrado com sucesso')
+        return('Email cadastrado com sucesso')
 
 def insertOutros(Titular, id):
     conn = pg.connect(
@@ -174,10 +174,10 @@ def insertOutros(Titular, id):
         break
     if encontrado == 0:
 
-        sql = "INSERT INTO titularoutros(titularoutrosdadotipo, titularoutrostitulo, titularoutrosvalor, titularid) VALUES(%s, %s, %s, %s)"
-        cursor.execute(sql, (tipo_dado, titulo_dado, valor_dado, id))
+        sql = "INSERT INTO titularoutros(titularoutrosdadotipo, titularoutrosdadotipochar, titularoutrostitulo, titularoutrosvalor, titularid) VALUES(%s, %s, %s, %s, %s)"
+        cursor.execute(sql, (tipo_dado, tipo_dado, titulo_dado, valor_dado, id))
         conn.commit()
-        return('Dados titulares cadastrados com sucesso')
+        return('Outros dados cadastrados com sucesso')
     
 def insertDadosTitulares(Titular, id):
     conn = pg.connect(
